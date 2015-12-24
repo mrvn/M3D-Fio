@@ -1651,7 +1651,7 @@ class M3DFioPlugin(
 			gcode = Gcode()
 		
 			# Check if pre-processing on the fly and command is not a starting line number and wasn't added on the fly
-			if self._printer.is_printing() and self._settings.get_boolean(["PreprocessOnTheFly"]) and not data.startswith("N0 M110 ") and " **" not in data:
+			if self._printer.is_printing() and self._settings.get_boolean(["PreprocessOnTheFly"]) and not data.startswith("N0 M110 ") and " **" not in data :
 			
 				# Get line number
 				lineNumber = int(re.findall("^N(\d+)", data)[0])
