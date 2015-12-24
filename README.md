@@ -1,21 +1,20 @@
 # M3D Fio
-OctoPrint plugin for the Micro 3D printer that provides a complete, platform independent alternative to the printer's official software 
+OctoPrint plugin for the Micro 3D printer that provides a complete, platform independent alternative to the printer's official software .
 
 © 2015 Exploit Kings. All rights reserved.
 
-You can install it with OctoPrint's built in plugin manager. The URL for that is [https://github.com/donovan6000/M3D-Fio/archive/master.zip](https://github.com/donovan6000/M3D-Fio/archive/master.zip) or you can install it manually with the command
+You can install it with OctoPrint's built in plugin manager using the following URL as the plugins source.
 
 ```shell
-pip install https://github.com/donovan6000/M3D-Fio/archive/master.zip
+https://github.com/donovan6000/M3D-Fio/archive/master.zip
 ```
 
-OctoPrint's autodetect serial port and baudrate feature doesn't work with the Micro 3D printer, so you'll need to manually set the baudrate to `115200` and the serial port to something like `COMx` for Windows, `/dev/ttyACMx` for Linux, or `/dev/tty.usbmodemxxxx` for OS X.
+M3D Fio works in conjunction with OctoPrint's autodetect serial port and baudrate feature, so neither of those values need to be specified in order to successfully connect to the Micro 3D printer.
 
-If your using Windows and the printer isn't recognized in the device manager, then you'll need to install the drivers manually which are located in `/drivers/Windows/`.
-
-If you are using Linux, the 90-m3d-local.rules needs to applied in order to avoid issues. You can apply it with the following commands:
+Installers were made for Windows, OS X, and Linux to simplify installing OctoPrint, M3D Fio, and all their dependencies. If your using Windows, you can run [this file](https://raw.githubusercontent.com/donovan6000/M3D-Fio/master/installers/Windows/install.zip) to install everything. If your using OS X, you can run [this file](https://raw.githubusercontent.com/donovan6000/M3D-Fio/master/installers/OS%20X/install.zip) to install everything. If your using Linux, you can run [this file](https://raw.githubusercontent.com/donovan6000/M3D-Fio/master/installers/Linux/install.zip) or run the following commands to install everything.
 
 ```shell
-wget -O /etc/udev/rules.d/90-m3d-local.rules https://raw.githubusercontent.com/donovan6000/M3D-Fio/master/drivers/Linux/90-m3d-local.rules
-sudo /etc/init.d/udev restart
+wget https://raw.githubusercontent.com/donovan6000/M3D-Fio/master/installers/Linux/install.zip
+unzip ./install.zip
+sudo sh ./install.sh
 ```
