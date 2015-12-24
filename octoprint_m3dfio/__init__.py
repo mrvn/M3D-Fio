@@ -1973,7 +1973,7 @@ class M3DFioPlugin(
 				if self.sharedLibrary and self._settings.get_boolean(["UseSharedLibrary"]) :
 				
 					# Pre-process command
-					commands = self.sharedLibrary.preprocess(ctypes.c_char_p(data), ctypes.c_char_p(None), ctypes.c_bool(True)).split(',')
+					commands = self.sharedLibrary.preprocess(ctypes.c_char_p("G4"), ctypes.c_char_p(None), ctypes.c_bool(True)).split(',')
 				
 				# Otherwise
 				else :
