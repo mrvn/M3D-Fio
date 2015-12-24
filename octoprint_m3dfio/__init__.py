@@ -1649,6 +1649,7 @@ class M3DFioPlugin(
 		
 			# Initialize variables
 			gcode = Gcode()
+			lineNumber = None
 		
 			# Check if pre-processing on the fly and command is not a starting line number and wasn't added on the fly
 			if self._printer.is_printing() and self._settings.get_boolean(["PreprocessOnTheFly"]) and not data.startswith("N0 M110 ") and " **" not in data :
@@ -2009,6 +2010,8 @@ class M3DFioPlugin(
 		if data.startswith("Send: ") and "M110" in data and self._printer.get_state_string() == "Connecting" :
 		
 			# Initialize variables
+			self.commandBacklog = []
+			self.changedCommands = {}
 			error = False
 		
 			# Get current printer connection state
