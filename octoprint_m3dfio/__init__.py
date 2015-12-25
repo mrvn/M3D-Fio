@@ -2567,7 +2567,13 @@ class M3DFioPlugin(
 			elif "PT:8 " in data :
 			
 				# Convert data to value
-				self.printerFilamentTemperature = int(data[data.find("DT:") + 3 :]) + 100
+                                temp = data[data.find("DT:") + 3 :]
+                                while temp and (data[-1] not in "0123456789"):
+                                        temp = temp[: -1]
+                                if temp :
+                                        self.printerFilamentTemperature = int(temp) + 100
+                                else :
+                                        self.printerFilamentTemperature = 0
 				
 				# Check if set to automatically collect printer settings
 				if self._settings.get_boolean(["AutomaticallyObtainSettings"]) :
